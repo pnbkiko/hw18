@@ -3,6 +3,7 @@ package task4;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
 class zd4 {
 
     private static final Scanner scanner = new Scanner(System.in);
@@ -31,7 +32,7 @@ class zd4 {
         }
     }
 
-    public static void add(final PizzaStorage storage)throws  IncorrectInputException{
+    public static void add(final PizzaStorage storage)throws  TooMuchPizzaException{
         try {
             final int count = getPositiveNumber("Введите количество пиццы для добавления => ");
             storage.addPizza(count);
@@ -40,10 +41,11 @@ class zd4 {
         }
     }
 
-    public static void take(final PizzaStorage storage) throws IncorrectInputException {
+    public static void take(final PizzaStorage storage) throws NotEnoughPizzaException{
         try {
             final int count = getPositiveNumber("Введите количество пиццы для удаления => ");
             storage.takePizza(count);
+
         } catch (IncorrectInputException exception) {
             System.out.println("Произошла ошибка: " + exception.getMessage());
         }
